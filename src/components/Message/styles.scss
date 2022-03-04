@@ -1,0 +1,11 @@
+.message {
+  background-color: #f8f8f8;
+  padding: 1em;
+  border: 1px solid #bdc3c7;
+  border-radius: 2px;
+  margin-bottom: 1em;
+  text-align: left;
+  &__text {
+    width: 100%;
+  }
+}

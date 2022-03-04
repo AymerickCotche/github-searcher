@@ -1,0 +1,35 @@
+.card {
+  background-color: #ffffff;
+  height: 500px;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 1em;
+  &__imgcontainer {
+    background-color: #bdc3c7;
+    height: 60%;
+    &__img {
+      height: 100%;
+    }
+  }
+  &__content {
+    padding: 1em;
+    &__name {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-bottom: 0.5em;
+    }
+    &__owner {
+      margin-bottom: 0.5em;
+      color: #bdc3c7;
+      font-size: 0.8em;
+    }
+    &__desc {
+      margin-bottom: 0.5em;
+    }
+  }
+}
