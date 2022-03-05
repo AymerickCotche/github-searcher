@@ -1,0 +1,11 @@
+.btnMore {
+  text-align: center;
+  background-color: #FFFFFF;
+  padding: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #bdc3c7;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+  }
+}

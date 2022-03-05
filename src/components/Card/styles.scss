@@ -18,6 +18,8 @@
   }
   &__content {
     padding: 1em;
+    height: 100%;
+    position: relative;
     &__name {
       font-weight: bold;
       font-size: 1.2em;
@@ -30,6 +32,17 @@
     }
     &__desc {
       margin-bottom: 0.5em;
+    }
+    &__stars {
+      bottom: 15px;
+      right: 15px;
+      position: absolute;
+    }
+    &__stars::before {
+      content: "★";
+      color: gold;
+      font-size: 1.5em;
+      vertical-align: -10%;
     }
   }
 }

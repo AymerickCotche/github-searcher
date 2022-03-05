@@ -1,7 +1,7 @@
 // == Import
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import * as _ from 'lodash';
 import './styles.scss';
@@ -12,7 +12,7 @@ import Cards from 'src/components/Cards';
 import Faq from 'src/components/Faq';
 import Navbar from '../Navbar';
 import logo from './logo-github.png';
-import { Results } from '../../type';
+import BtnMoreResults from 'src/components/BtnMoreResult';
 
 // == Composant
 const App = () => {
@@ -22,21 +22,28 @@ const App = () => {
     items: [],
     total_count: 0,
   });
+  const [hasResults, setHasResults] = useState(false);
+  const [sortBy, setSortBy] = useState('created');
+  const [orderBy, setOrderBy] = useState('desc');
+  const [resultsNb, setResultsNb] = useState(9);
 
-  const getDatas = async (userSearch: string) => {
+  const getDatas = async () => {
     try {
       const datas = await axios.get(
-        `https://api.github.com/search/repositories?q=${userSearch}`,
+        `https://api.github.com/search/repositories?q=${search}&sort=${sortBy}&order=${orderBy}&page=1&per_page=${resultsNb}`,
+
       );
       setResultsApi(datas.data);
+      setHasResults(true);
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    if (search !== '') getDatas(search);
-  }, [search]);
+    if (search !== '') getDatas();
+  }, [search, orderBy, sortBy, resultsNb]);
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
   const { items, total_count } = resultsApi;
 
   return (
@@ -54,9 +61,21 @@ const App = () => {
                 inputValue={inputSearch}
                 onChangeInputValue={setInputSearch}
                 setSearch={setSearch}
+                setSortBy={setSortBy}
+                setOrderBy={setOrderBy}
+                orderByValue={orderBy}
+                setResultsNb={setResultsNb}
               />
               <Message counter={total_count} />
-              <Cards repos={items} />
+              {
+                hasResults &&
+                (
+                  <div>
+                    <Cards repos={items} />
+                    <BtnMoreResults resultsNbValue={resultsNb} setResultsNb={setResultsNb} />
+                  </div>
+                )
+              }
             </div>
           )}
         />

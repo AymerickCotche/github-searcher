@@ -8,5 +8,20 @@
     border: 1px solid #bdc3c7;
     border-radius: 2px;
     width: 100%;
+    margin-bottom: 1em;
+    background-color: #f8f8f8;
+    height: 2em;
+  }
+  &__conf {
+    text-align: center;
+    &__select__options {
+      margin-left: 0.2em;
+      margin-right: 1em;
+      border: 1px solid #bdc3c7;
+    }
+    &__radio {
+      margin-left: 1em;
+      margin-right: 0.1em;
+    }
   }
 }
