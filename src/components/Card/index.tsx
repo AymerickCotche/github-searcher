@@ -1,10 +1,11 @@
 // == Import
 import * as React from 'react';
 import './styles.scss';
+// == Type
 import { Repo } from '../../type';
 
 type MyProps = { repo: Repo };
-// == Composant
+// == Component
 const Card = ({ repo }: MyProps) => (
   <a href={repo.html_url} target="_blank" rel="noreferrer">
     <div className="card">

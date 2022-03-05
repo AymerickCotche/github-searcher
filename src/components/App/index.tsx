@@ -10,12 +10,13 @@ import SearchBar from 'src/components/SearchBar';
 import Message from 'src/components/Message';
 import Cards from 'src/components/Cards';
 import Faq from 'src/components/Faq';
-import Navbar from '../Navbar';
-import logo from './logo-github.png';
 import BtnMoreResults from 'src/components/BtnMoreResult';
+import Navbar from 'src/components/Navbar';
+import logo from './logo-github.png';
 
 // == Composant
 const App = () => {
+  // == States
   const [inputSearch, setInputSearch] = useState('');
   const [search, setSearch] = useState('');
   const [resultsApi, setResultsApi] = useState({
@@ -26,7 +27,7 @@ const App = () => {
   const [sortBy, setSortBy] = useState('created');
   const [orderBy, setOrderBy] = useState('desc');
   const [resultsNb, setResultsNb] = useState(9);
-
+  // == Functions
   const getDatas = async () => {
     try {
       const datas = await axios.get(
@@ -39,6 +40,7 @@ const App = () => {
       console.log(error);
     }
   };
+  // == useEffect to get repos when needed
   useEffect(() => {
     if (search !== '') getDatas();
   }, [search, orderBy, sortBy, resultsNb]);

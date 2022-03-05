@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import './styles.scss';
 import Card from 'src/components/Card';
+// == Type
 import { Repo } from '../../type';
 
 type MyProps = {
