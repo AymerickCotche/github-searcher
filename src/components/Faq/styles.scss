@@ -1,0 +1,18 @@
+.faq {
+  &__qr {
+    background-color: #FFFFFF;
+    margin-bottom: 1em;
+    padding: 1.5em;
+    border: 1px solid #bdc3c7;
+    border-radius: 10px;
+    &__q {
+      font-size: 1.2em;
+      margin-bottom: 0.6em;
+      font-weight: bold;
+    }
+    &__r::before {
+      content: "►";
+      margin-right: 0.2em;
+    }
+  }
+}
