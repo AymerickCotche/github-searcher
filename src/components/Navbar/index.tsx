@@ -10,7 +10,7 @@ const Navbar = () => (
       to="/"
       className={({ isActive }) => `navbar__link ${(isActive ? 'navbar__link--selected' : '')}`}
     >
-      Accueil
+      Home
     </NavLink>
     <NavLink
       to="/faq"

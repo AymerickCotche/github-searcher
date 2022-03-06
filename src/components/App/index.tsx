@@ -12,6 +12,7 @@ import Cards from 'src/components/Cards';
 import Faq from 'src/components/Faq';
 import BtnMoreResults from 'src/components/BtnMoreResult';
 import Navbar from 'src/components/Navbar';
+import NotFound from 'src/components/NotFound';
 import logo from './logo-github.png';
 
 // == Composant
@@ -68,13 +69,14 @@ const App = () => {
                 orderByValue={orderBy}
                 setResultsNb={setResultsNb}
               />
-              <Message counter={total_count} />
+              <Message counter={total_count} hasResults={hasResults} />
               {
                 hasResults &&
                 (
                   <div>
                     <Cards repos={items} />
-                    <BtnMoreResults resultsNbValue={resultsNb} setResultsNb={setResultsNb} />
+                    { total_count > 9 &&
+                      <BtnMoreResults resultsNbValue={resultsNb} setResultsNb={setResultsNb} />}
                   </div>
                 )
               }
@@ -82,6 +84,7 @@ const App = () => {
           )}
         />
         <Route path="/faq" element={<Faq />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

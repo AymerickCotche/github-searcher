@@ -1,0 +1,11 @@
+.notfound {
+  text-align: center;
+  height: 100%;
+  
+  &__error {
+    font-size: 15em;
+  }
+  &__msg {
+    font-size: 2em;
+  }
+}
